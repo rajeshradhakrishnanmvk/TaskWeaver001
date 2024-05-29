@@ -1,10 +1,11 @@
 from typing import Literal
+import nest_asyncio
 
 from taskweaver.ces.common import Manager
 from taskweaver.ces.environment import Environment, EnvMode
 from taskweaver.ces.manager.sub_proc import SubProcessManager
 
-
+nest_asyncio.apply()
 def code_execution_service_factory(
     env_dir: str,
     kernel_mode: Literal["local", "container"] = "local",

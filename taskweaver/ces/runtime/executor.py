@@ -19,7 +19,7 @@ class PluginTestEntry:
 
 @dataclass
 class RuntimePlugin(EnvPlugin):
-    initializer: Optional[type[Plugin]] = None
+    initializer: Optional[Type[Plugin]] = None
     test_cases: List[PluginTestEntry] = field(default_factory=list)
 
     @property
@@ -216,7 +216,7 @@ class Executor:
         plugin = self.plugin_registry[plugin_name]
         return plugin.get_instance(self.ctx)
 
-    def test_plugin(self, plugin_name: str) -> tuple[bool, list[str]]:
+    def test_plugin(self, plugin_name: str) -> 'tuple[bool, list[str]]':
         plugin = self.plugin_registry[plugin_name]
         return plugin.test_impl()
 

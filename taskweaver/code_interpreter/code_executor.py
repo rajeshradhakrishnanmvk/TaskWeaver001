@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from typing import List, Literal
+from typing import Union,List, Literal
 
 from injector import inject
 
@@ -57,7 +57,7 @@ class CodeExecutor:
             session_dir=workspace,
             cwd=execution_cwd,
         )
-        self.exec_kernel_mode = self.exec_mgr.get_kernel_mode()
+        #self.exec_kernel_mode = self.exec_mgr.get_kernel_mode()
         self.client_started: bool = False
         self.plugin_registry = plugin_registry
         self.plugin_loaded: bool = False
@@ -216,5 +216,5 @@ class CodeExecutor:
 
         return "\n".join([" " * indent + ln for ln in lines])
 
-    def get_execution_mode(self) -> Literal["local", "container"] | None:
-        return self.exec_kernel_mode
+    # def get_execution_mode(self) -> Union[Literal["local"], Literal["container"], None]:
+    #     return self.exec_kernel_mode

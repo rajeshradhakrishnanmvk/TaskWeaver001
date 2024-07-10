@@ -1,0 +1,31 @@
+name: split_video
+enabled: true
+required: true
+plugin_only: true
+description: This plugin splits a video into one-minute segments.
+examples: |-
+  result = split_video(video_path="path/to/video.mp4", output_dir="path/to/output")
+
+parameters:
+  - name: video_path
+    type: str
+    required: true
+    description: >-
+      Path to the input video file.
+  - name: output_dir
+    type: str
+    required: true
+    description: >-
+      Directory to save the split video segments.
+  - name: duration
+    type: int
+    required: false
+    default: 60
+    description: >-
+      Duration of each segment in seconds (default: 60 seconds = 1 minute).
+
+returns:
+  - name: result
+    type: list
+    description: >-
+      A list of file paths to the split video segments.

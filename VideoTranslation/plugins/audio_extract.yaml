@@ -1,0 +1,27 @@
+name: extract_audio
+enabled: true
+required: true
+plugin_only: true
+description: This plugin extracts audio from video files in a directory and saves them as WAV files.
+examples: |-
+  result = extract_audio(video_path="/path/to/video/files", output_path="/path/to/save/audio")
+
+parameters:
+  - name: video_path
+    type: str
+    required: true
+    description: >-
+      Path to the directory containing the video files.
+
+  - name: output_path
+    type: str
+    required: false
+    default: "audio.wav"
+    description: >-
+      Path to save the extracted audio files (default: "audio.wav").
+
+returns:
+  - name: result
+    type: str
+    description: >-
+      A message indicating the audio has been extracted and saved, including the file names.
